@@ -1,48 +1,76 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Desktop (JVM).
+# News Feed Simulator (Kotlin Multiplatform)
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+Project ini dibuat untuk memenuhi tugas P2 – Advanced Kotlin, Coroutines, dan Flow.
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
-
-### Build and Run Android Application
-
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
-
-### Build and Run Desktop (JVM) Application
-
-To build and run the development version of the desktop app, use the run configuration from the run widget
-in your IDE’s toolbar or run it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:run
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:run
-  ```
-
-### Build and Run iOS Application
-
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
+Aplikasi ini mensimulasikan sistem News Feed menggunakan Kotlin Multiplatform dan memanfaatkan:
+- Coroutines
+- Flow
+- StateFlow
+- Async/Await
+- Jetpack Compose
 
 ---
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+## 🚀 Fitur
+
+- Flow yang emit berita baru setiap 2 detik
+- Filter berita berdasarkan kategori (Tech, Sports, Politics)
+- Transformasi tampilan judul menggunakan operator map
+- StateFlow untuk menghitung jumlah berita yang telah dibaca
+- Pengambilan detail berita secara asynchronous menggunakan async/await
+
+---
+
+## 🧠 Konsep yang Digunakan
+
+### 1️⃣ Kotlin Flow
+Digunakan untuk mensimulasikan streaming data berita secara real-time.
+
+```kotlin
+repo.newsStream()
+    .filter { it.category == selectedCategory }
+    .map { it.copy(title = "[${it.category}] ${it.title}") }
+```
+
+### 2️⃣ StateFlow
+Digunakan untuk menyimpan state jumlah berita yang telah dibaca dan list berita.
+
+### 3️⃣ Coroutines
+Digunakan untuk:
+- Menjalankan streaming berita
+- Mengambil detail berita secara asynchronous
+
+---
+
+## 🛠️ Cara Menjalankan Project
+
+Clone repository:
+git clone https://github.com/USERNAME/REPOSITORY.git
+
+Buka project di Android Studio  
+Sync Gradle  
+Jalankan target androidApp  
+
+---
+
+## 📂 Struktur Project
+
+commonMain
+ ├── App.kt
+ ├── News.kt
+ ├── NewsRepository.kt
+ └── NewsViewModel.kt
+
+---
+
+---
+
+# Dokumentasi
+```markdown
+![Screenshot](screenshot.png)
+
+## 👨‍💻 Author
+
+Nama: Muharyan Syaifullah (123140045)
+Mata Kuliah: Pemrograman Aplikasi Mobile
+Tahun: 2026
