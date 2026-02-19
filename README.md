@@ -45,7 +45,7 @@ Digunakan untuk:
 ## 🛠️ Cara Menjalankan Project
 
 Clone repository:
-git clone https://github.com/USERNAME/REPOSITORY.git
+git clone https://github.com/MuharyanSyaifullah/news-feed-kmp.git
 
 Buka project di Android Studio  
 Sync Gradle  
