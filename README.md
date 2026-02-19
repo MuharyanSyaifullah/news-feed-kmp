@@ -66,7 +66,6 @@ commonMain
 ---
 
 # Dokumentasi
-```markdown
 ![Screenshot](screenshot.png)
 
 ## 👨‍💻 Author
